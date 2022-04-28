@@ -14,6 +14,12 @@ Creating a Tesla Clone to learn more about React Native important parts from set
 - Styling
 - And **more**.
 
+## Starting the project
+
+```js
+expo start
+```
+
 ## Setting Up the Environment
 
 ## Setting Up the Project using Expo.
