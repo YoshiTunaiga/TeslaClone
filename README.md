@@ -26,6 +26,11 @@ expo start
 
 ## Debugging Vs Reusable Components
 
+As Reusable components we will have:
+
+- CarItem
+- StyledButton
+
 ## Attributions
 
 This was thanks to a learning experience from:
