@@ -20,6 +20,34 @@ const styles = StyleSheet.create({
     height: 25,
     resizeMode: "contain",
   },
+  sideContainer: {
+    position: "absolute",
+    zIndex: 1,
+    height: "100%",
+    top: 0,
+    right: 0,
+    backgroundColor: "white",
+    overflow: "hidden",
+    paddingTop: 20,
+    paddingLeft: 20,
+  },
+  wrapper: {},
+  divmenu: {
+    textAlign: "center",
+  },
+  menuText: {
+    justifyContent: "center",
+    fontSize: 12,
+    fontWeight: "500",
+    padding: 10,
+  },
+  closeIcon: {
+    textAlign: "right",
+    justifyContent: "center",
+    fontSize: 18,
+    fontWeight: "500",
+    padding: 10,
+  },
 });
 
 export default styles;
