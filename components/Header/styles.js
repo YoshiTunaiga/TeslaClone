@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
   },
   sideContainer: {
     position: "absolute",
-    zIndex: 1,
-    height: "100%",
+    zIndex: 100,
+    height: Dimensions.get("window").height,
     top: 0,
     right: 0,
     backgroundColor: "white",
     overflow: "hidden",
-    paddingTop: 20,
+    paddingTop: 10,
     paddingLeft: 20,
   },
   wrapper: {},

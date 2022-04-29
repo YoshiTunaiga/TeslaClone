@@ -9,6 +9,7 @@ const CarsList = (props) => {
     <View style={styles.container}>
       <FlatList
         data={cars}
+        keyExtractor={(item) => item.idx}
         renderItem={({ item, idx }) => <CarItem car={item} idx={idx} />}
         snapToAlignment={"start"}
         decelerationRate={"fast"}

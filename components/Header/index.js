@@ -6,6 +6,8 @@ import {
   Text,
   Dimensions,
   FlatList,
+  ScrollView,
+  SafeAreaView,
 } from "react-native";
 import { menuData } from "./menuData";
 import styles from "./styles";
@@ -26,16 +28,19 @@ const Header = () => {
 
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.logo}
-        source={require("../../assets/images/logo.png")}
-      />
       <SideNav
+        width={sideBarWidth}
         visibility={visibility}
         sideBarWidth={setSideBarWidth}
         openNav={openNav}
         closeNav={closeNav}
+        animate
       />
+      <Image
+        style={styles.logo}
+        source={require("../../assets/images/logo.png")}
+      />
+
       <Pressable onPress={openNav}>
         <Image
           style={styles.menu}
@@ -47,14 +52,14 @@ const Header = () => {
 };
 
 const SideNav = (props) => {
-  const { visibility, sideBarWidth, openNav, closeNav } = props;
+  const { visibility, sideBarWidth, openNav, closeNav, width } = props;
   return (
     <View
       style={[
         styles.sideContainer,
         {
           display: visibility,
-          width: sideBarWidth,
+          width: width,
           height: Dimensions.get("window").height,
         },
       ]}
@@ -62,13 +67,29 @@ const SideNav = (props) => {
       <Pressable onPress={closeNav}>
         <Text style={styles.closeIcon}>X</Text>
       </Pressable>
-      {menuData.map((item, idx) => (
-        <View key={idx}>
-          <Text style={styles.menuText}>{item.title}</Text>
-        </View>
-      ))}
+      <FlatList
+        data={menuData}
+        renderItem={({ item, idx }) => (
+          <Text style={styles.menuText} key={idx}>
+            {item.title}
+          </Text>
+        )}
+        keyExtractor={(item) => item.idx}
+        snapToAlignment={"start"}
+        decelerationRate={"fast"}
+        snapToInterval={Dimensions.get("window").height}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };
 
 export default Header;
+
+/**
+       {menuData.map((item, idx) => (
+        <FlatList key={idx}>
+          <Text style={styles.menuText}>{item.title}</Text>
+        </FlatList>
+      ))}
+ */
